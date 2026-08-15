@@ -29,3 +29,22 @@ jadi halaman tidak pernah rusak — tinggal drop filenya kapan saja.
    ada dulu — atau pilih foto produk, interior kosong, tangan, dan siluet.
 3. **Hak pakai.** Pastikan foto milik SKOEE sendiri atau sudah diizinkan
    fotografernya. Screenshot dari akun/postingan orang lain jangan dipakai.
+
+## Referensi sumber (catatan internal)
+
+Postingan Instagram SKOEE yang jadi acuan untuk slot yang fotonya belum ada.
+Dipakai sebagai rujukan visual — file aslinya diminta langsung ke pemilik,
+bukan di-crop dari halaman Instagram.
+
+| Slot                 | Referensi                          |
+|----------------------|------------------------------------|
+| `logo.png`           | instagram.com/p/DW_GYxVj31B        |
+| `merona-bottle.jpg`  | instagram.com/p/Da-C_ulj_KI (slide 4) |
+| `affogato.jpg`       | instagram.com/p/DbIuYSxj1Kz        |
+| `coffee-beans.jpg`   | instagram.com/p/DakNWJ7Dw6d — Cloudline Coffee Roasters |
+| `dimsum-mentai.jpg`  | instagram.com/p/DW1OT2cjxIy        |
+| `promo-buy2get1.jpg` | instagram.com/p/DbkyXhkP1um        |
+
+Catatan ini sengaja tidak ditaruh di `data-note` pada HTML, karena teks
+`data-note` **tampil ke pengunjung** di dalam placeholder. Yang tampil di
+halaman cukup "Foto menyusul".
