@@ -551,7 +551,9 @@ html:not(.js) .hero-bg .media-img { opacity: 1; }
 
 /* ---------- Community ---------- */
 .community { background: var(--navy); position: relative; overflow: hidden; }
-.community-inner { max-width: 680px; position: relative; z-index: 2; }
+.community-grid { display: grid; gap: 30px; position: relative; z-index: 2; }
+.community-inner { max-width: 680px; }
+.community-media { min-height: 260px; aspect-ratio: 3 / 2; }
 .community h2 { margin-bottom: 18px; font-size: clamp(1.8rem, 6vw, 2.6rem); }
 .community p { color: #d5dcec; margin-bottom: 24px; }
 .community-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
@@ -635,6 +637,7 @@ html:not(.js) .hero-bg .media-img { opacity: 1; }
 
   .about-grid { grid-template-columns: 1fr 1fr; align-items: center; }
   .promo-inner { grid-template-columns: 1fr 1fr; align-items: center; }
+  .community-grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
   .location-grid { grid-template-columns: 1fr 1fr; align-items: stretch; }
 }
 
