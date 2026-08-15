@@ -245,25 +245,33 @@
     });
 
     var slot = $('#mapSlot');
+    var raw = String(maps.embed || '').trim();
 
-    // Hanya URL embed resmi (https://www.google.com/maps/embed?pb=...) yang
-    // disuntik. Bentuk lain — link Share biasa, maps.google.com/maps?...&output=embed,
-    // apalagi google.com polos — ditolak Google untuk di-iframe dan hasilnya
-    // kotak kosong. Kalau tidak valid, kartu lokasi statis dibiarkan tampil.
-    var isEmbedUrl = /^https:\/\/(www\.)?google\.com\/maps\/embed\?/.test(maps.embed || '');
+    // Tombol di Google Maps bertuliskan "COPY HTML", jadi yang tersalin biasanya
+    // satu blok <iframe ...> utuh — bukan URL-nya saja. Terima dua-duanya:
+    // kalau yang diisi blok HTML, ambil isi src="..."-nya.
+    var srcMatch = raw.match(/<iframe[^>]*\ssrc=["']([^"']+)["']/i);
+    var embedUrl = srcMatch ? srcMatch[1] : raw;
 
-    if (slot && maps.embed && !isEmbedUrl) {
+    // Hanya URL embed resmi (https://www.google.com/maps/embed?...) yang disuntik.
+    // Bentuk lain — link Share biasa, maps.google.com/maps?...&output=embed, apalagi
+    // google.com polos — ditolak Google untuk di-iframe dan hasilnya kotak kosong.
+    // Kalau tidak valid, kartu lokasi statis dibiarkan tampil.
+    var isEmbedUrl = /^https:\/\/(www\.)?google\.com\/maps\/embed\?/.test(embedUrl);
+
+    if (slot && raw && !isEmbedUrl) {
       console.warn(
-        '[SKOEE] maps.embed di js/config.js diabaikan karena bukan URL embed resmi.\n' +
-        'Ambil lewat: Google Maps → Share → tab "Embed a map" → COPY HTML →\n' +
-        'salin URL di dalam src="...". Bentuknya https://www.google.com/maps/embed?pb=...\n' +
-        'Nilai sekarang: ' + maps.embed
+        '[SKOEE] maps.embed di js/config.js diabaikan karena bukan embed resmi.\n' +
+        'Ambil lewat: Google Maps → Share → tab "Embed a map" → COPY HTML.\n' +
+        'Boleh ditempel apa adanya (blok <iframe ...>) atau URL-nya saja;\n' +
+        'yang penting URL-nya diawali https://www.google.com/maps/embed?\n' +
+        'Nilai sekarang: ' + raw.slice(0, 120)
       );
     }
 
     if (slot && isEmbedUrl) {
       var frame = document.createElement('iframe');
-      frame.src = maps.embed;
+      frame.src = embedUrl;
       frame.title = 'Peta lokasi Some Kind Of Coffee';
       frame.loading = 'lazy';
       frame.referrerPolicy = 'no-referrer-when-downgrade';
