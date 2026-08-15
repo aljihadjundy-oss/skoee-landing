@@ -1,0 +1,42 @@
+name: Deploy ke GitHub Pages
+
+on:
+  push:
+    branches: [claude/skoee-landing-page-review-5h9gfv]
+  # Tombol "Run workflow" manual di tab Actions
+  workflow_dispatch:
+
+# Izin minimum yang dibutuhkan actions/deploy-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Kalau ada dua push beruntun, biarkan yang terakhir selesai;
+# yang sedang jalan tidak dibatalkan supaya deploy tidak setengah jalan.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # enablement: true → menyalakan Pages otomatis kalau belum aktif,
+      # jadi tidak perlu klik apa-apa di Settings.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # Situs statis tanpa build step: seluruh isi repo langsung diupload.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

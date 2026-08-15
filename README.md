@@ -20,6 +20,31 @@ python3 -m http.server 8000
 
 Buka lewat server, bukan double-click file — beberapa fitur butuh HTTP.
 
+## Deploy (GitHub Pages)
+
+Workflow `.github/workflows/deploy-pages.yml` sudah terpasang. Setiap push ke
+branch `claude/skoee-landing-page-review-5h9gfv` (branch default repo ini)
+otomatis men-deploy ulang. Bisa juga dijalankan manual lewat tab **Actions** →
+**Deploy ke GitHub Pages** → **Run workflow**.
+
+URL hasil deploy:
+
+```
+https://aljihadjundy-oss.github.io/skoee-landing/
+```
+
+**Syarat: repo harus publik.** GitHub Pages untuk repo privat hanya tersedia di
+paket berbayar (Pro/Team/Enterprise). Repo ini sekarang masih privat, jadi
+deploy akan gagal sampai visibility-nya diubah:
+**Settings → General → Danger Zone → Change visibility → Make public**.
+
+Kalau memang tidak mau repo-nya publik, alternatif gratis dengan repo tetap
+privat: **Netlify** atau **Vercel** (connect repo → deploy, tanpa konfigurasi
+tambahan karena situs ini statis murni).
+
+Kalau nanti pakai domain sendiri, ganti `canonical`, `og:url`, dan `og:image`
+di `<head>` `index.html` ke domain baru.
+
 ## Cara mengisi data
 
 **Hampir semua yang kosong diisi lewat `js/config.js` saja.** Field yang masih
@@ -33,7 +58,8 @@ Foto: cukup taruh file di `assets/images/` dengan nama yang sudah ditentukan.
 
 # Yang masih dibutuhkan dari pemilik cafe
 
-Diurut dari yang paling menghambat. Tanda ⛔ = halaman belum layak tayang tanpa ini.
+Diurut dari yang paling menghambat.
+⛔ = belum layak tayang tanpa ini · ⚠️ = sudah diisi tapi perlu dibetulkan · ✅ = beres.
 
 ## 1. ⛔ Foto & logo asli
 Belum ada satu pun file gambar, jadi semua slot masih menampilkan placeholder.
@@ -50,27 +76,31 @@ Yang paling krusial: `logo.png`, `interior.jpg` (background hero), dan lima foto
 > itu memang milik SKOEE, file aslinya jauh lebih baik: minta langsung ke
 > pemiliknya, kualitasnya penuh dan status hak pakainya jelas.
 
-## 2. ⛔ Nomor WhatsApp
-Isi `whatsapp` di `js/config.js`. Format bebas — `0812-3456-7890`,
-`+62 812 3456 7890`, atau `6281234567890` semuanya dinormalisasi otomatis.
+## 2. ✅ Nomor WhatsApp — selesai
+✅ Sudah diisi (`082130820192` → jadi link `wa.me/6282130820192`).
 
-Selama kosong, tombol "Order via WA" di header otomatis berubah jadi
-"Order via Instagram", dan tombol WhatsApp di section Lokasi disembunyikan.
+## 3. ⚠️ Embed Google Maps — masih salah isi
+✅ Alamat sudah diisi: *Jl. Ciputat Molek III No.17, Pisangan, Ciputat Timur*.
 
-## 3. ⛔ Alamat lengkap + embed Google Maps
-Sekarang baru "Legoso, Ciputat Timur". Yang dibutuhkan:
-- Nama jalan + nomor + kode pos → isi `address` di `js/config.js`
-- Link Google Maps (Maps → **Share** → salin link) → `maps.link`
-- Kode embed (Maps → **Share** → **Embed a map** → ambil URL di dalam `src="..."`) → `maps.embed`
+❌ `maps.embed` masih berisi `https://google.com` — itu bukan URL embed, dan
+kalau dipaksa disuntik hasilnya cuma kotak kosong (Google menolak halamannya
+di-iframe). Sementara ini nilainya diabaikan dan placeholder peta tetap tampil.
 
-Begitu `maps.embed` diisi, peta langsung tampil menggantikan placeholder.
-Alamat lengkap juga perlu disalin ke blok JSON-LD di bagian bawah `index.html`
-(`streetAddress`, `postalCode`) supaya listing di Google Search akurat.
+Cara ambil yang benar:
+1. Buka Google Maps → cari **Some Kind Of Coffee**
+2. **Share** → tab **Embed a map** → **COPY HTML**
+3. Dari HTML itu, ambil URL yang ada di dalam `src="..."` saja
+4. Tempel ke `maps.embed` — bentuknya `https://www.google.com/maps/embed?pb=...`
 
-## 4. Harga menu
-Isi `prices` di `js/config.js` dengan angka polos (`22000`, bukan `"Rp 22.000"`).
-Formatnya jadi "Rp 22.000" otomatis. Yang dibiarkan `null` tidak menampilkan
-baris harga sama sekali — aman kalau harga masih sering berubah.
+Alamat lengkap juga masih perlu disalin ke blok JSON-LD di bagian bawah
+`index.html` (`streetAddress`, `postalCode`) supaya listing di Google Search akurat.
+
+## 4. ⚠️ Harga menu — perlu dicek ulang
+✅ Sudah diisi, semua Rp 22.000.
+
+Cek lagi kalau ini cuma angka sementara — Merona 1000ml dan Dimsum Mentai
+kemungkinan besar beda harga dari kopi susu segelas. Formatnya otomatis jadi
+"Rp 22.000"; isi `null` kalau ada item yang harganya belum mau ditampilkan.
 
 ## 5. Promo yang sedang berjalan
 Promo "Buy 2 Get 1 Free" masih hardcoded dari brief. Tiap bulan cukup ubah
@@ -78,10 +108,12 @@ Promo "Buy 2 Get 1 Free" masih hardcoded dari brief. Tiap bulan cukup ubah
 Kalau lagi tidak ada promo: set `promo.active: false` → seluruh section hilang.
 
 ## 6. Domain final
-Setelah domain ditentukan, ganti tiga hal di `<head>` `index.html`:
-`<link rel="canonical">`, `og:url`, dan `og:image` (harus URL absolut,
-mis. `https://skoee.id/assets/images/og-cover.jpg` — kalau relatif, preview
-di WhatsApp/Instagram tidak muncul).
+Sudah diarahkan ke URL GitHub Pages. Ganti `canonical`, `og:url`, dan `og:image`
+di `<head>` `index.html` kalau nanti pindah ke domain sendiri.
+
+> Catatan kecil: indikator "Buka sekarang / Lagi tutup" di hero memakai jam
+> perangkat pengunjung. Akurat untuk pengunjung di Indonesia; kalau dibuka dari
+> zona waktu lain, statusnya ikut zona waktu tersebut.
 
 ## 7. Opsional, tapi berpengaruh besar untuk cafe lokal
 - **Nomor telepon** → tambahkan `telephone` di blok JSON-LD

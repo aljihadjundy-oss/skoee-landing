@@ -245,7 +245,22 @@
     });
 
     var slot = $('#mapSlot');
-    if (slot && maps.embed) {
+    // Hanya URL embed resmi Google Maps yang boleh disuntik. Link Maps biasa
+    // (apalagi google.com polos) akan ditolak browser lewat X-Frame-Options
+    // dan cuma menghasilkan kotak kosong — lebih baik tetap tampilkan placeholder.
+    var isEmbedUrl = /^https:\/\/(www\.)?google\.com\/maps\/embed/.test(maps.embed || '') ||
+                     /^https:\/\/maps\.google\.com\/maps\?.*output=embed/.test(maps.embed || '');
+
+    if (slot && maps.embed && !isEmbedUrl) {
+      console.warn(
+        '[SKOEE] maps.embed di js/config.js bukan URL embed Google Maps yang valid, jadi diabaikan.\n' +
+        'Ambil lewat: Google Maps → Share → Embed a map → copy HTML → salin URL di dalam src="...".\n' +
+        'Bentuknya harus diawali https://www.google.com/maps/embed?pb=...\n' +
+        'Nilai sekarang: ' + maps.embed
+      );
+    }
+
+    if (slot && maps.embed && isEmbedUrl) {
       var frame = document.createElement('iframe');
       frame.src = maps.embed;
       frame.title = 'Peta lokasi Some Kind Of Coffee';
