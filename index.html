@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Some Kind Of Coffee (SKOEE) — Coffee Shop Ciputat Timur, Tangsel</title>
+<meta name="description" content="Some Kind Of Coffee (SKOEE) — coffee shop lokal di Legoso, Ciputat Timur, Tangerang Selatan. Kopi susu gula aren, filter single origin, Merona 1000ml. Buka setiap hari 08.00–23.00.">
+<meta name="theme-color" content="#17181b">
+
+<!-- TODO(canonical): ganti ke domain final, mis. https://skoee.id/ -->
+<link rel="canonical" href="https://example.com/">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Some Kind Of Coffee">
+<meta property="og:title" content="Some Kind Of Coffee (SKOEE) — Ngopi santai di Ciputat Timur">
+<meta property="og:description" content="Coffee shop lokal di Legoso, Ciputat Timur. Kopi susu gula aren, filter single origin, Merona 1000ml. Buka tiap hari 08.00–23.00.">
+<meta property="og:locale" content="id_ID">
+<!-- TODO(og:image): 1200x630px, taruh di assets/images/og-cover.jpg lalu pakai URL absolut -->
+<meta property="og:image" content="assets/images/og-cover.jpg">
+<meta property="og:url" content="https://example.com/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2317181b'/><text x='50' y='68' font-size='46' font-family='Arial Black,sans-serif' fill='%23ffcc00' text-anchor='middle'>SK</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Langsung ke konten</a>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="Some Kind Of Coffee — kembali ke atas">
+      <span class="brand-mark" aria-hidden="true">SK<span class="brand-zero">0</span>9</span>
+      <span class="brand-name">Some Kind Of Coffee</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+      <a href="#about">Tentang</a>
+      <a href="#menu">Menu</a>
+      <a href="#promo">Promo</a>
+      <a href="#community">Komunitas</a>
+      <a href="#location">Lokasi</a>
+    </nav>
+
+    <a class="btn btn-cta header-cta" data-site-link="whatsapp" href="#location" rel="noopener">Order via WA</a>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Buka menu navigasi">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg" aria-hidden="true">
+      <!-- TODO: ganti dengan foto asli interior SKOEE (hindari wajah pengunjung/staff tanpa izin) -->
+      <img class="media-img" src="assets/images/interior.jpg" alt="" loading="eager" decoding="async" width="1600" height="900">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="blob blob-pink" aria-hidden="true"></div>
+    <div class="blob blob-cyan" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <div class="hero-logo media media--round" data-label="Logo SK09" data-note="Sumber: instagram.com/p/DW_GYxVj31B">
+        <img class="media-img" src="assets/images/logo.png" alt="Logo Some Kind Of Coffee (SK09)" width="180" height="180" decoding="async">
+      </div>
+      <h1 class="display">Ngopi santai,<br>ala Some Kind Of Coffee.</h1>
+      <p class="hero-sub">Coffee shop lokal di Ciputat Timur — tempat nongkrong, kerja, sampai jadi venue komunitas. Buka setiap hari, 08.00–23.00.</p>
+      <div class="hero-actions">
+        <a class="btn btn-cta" href="https://www.instagram.com/somekindof.coffee" target="_blank" rel="noopener">Order via Instagram</a>
+        <a class="btn btn-outline" href="#menu">Lihat Menu</a>
+      </div>
+      <p class="hero-status" id="openStatus" hidden></p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about section" id="about">
+    <div class="container about-grid">
+      <div class="about-text" data-reveal style="--d:0">
+        <span class="eyebrow">Tentang Kami</span>
+        <h2 class="display">Bukan sekadar tempat ngopi.</h2>
+        <p>Some Kind Of Coffee (SKOEE) lahir dari semangat street &amp; skate culture yang ketemu sama cinta akan kopi. Beton ekspos, counter navy, kayu hangat, dan tanaman hijau — vibe-nya santai tapi tetap punya karakter. Sering banget jadi venue buat komunitas lari sampai workshop kerajinan lokal.</p>
+        <ul class="about-facts">
+          <li><strong>Lokasi</strong><span>Legoso, Ciputat Timur, Tangerang Selatan</span></li>
+          <li><strong>Jam Buka</strong><span>Setiap hari, 08.00 – 23.00</span></li>
+          <li><strong>Vibe</strong><span>Playful, street-inspired, akrab sama komunitas lokal</span></li>
+        </ul>
+      </div>
+      <!-- TODO: ganti dengan foto asli counter/barista, hindari wajah tanpa izin -->
+      <figure class="about-media media" data-label="Foto counter / barista" data-note="TODO: foto asli SKOEE" data-reveal style="--d:1">
+        <img class="media-img" src="assets/images/counter.jpg" alt="Counter dan area barista Some Kind Of Coffee" loading="lazy" decoding="async" width="800" height="600">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <span class="eyebrow">Menu Highlights</span>
+      <h2 class="display">Dari gula aren sampai single origin.</h2>
+      <p class="section-sub">Dari kopi susu gula aren sampai filter coffee single-origin — semua ada di Skoee.</p>
+
+      <!-- TODO(harga): isi semua data-price di bawah dengan harga asli, atau hapus <span class="price"> kalau nggak mau tampil -->
+      <div class="menu-grid">
+        <article class="menu-card" data-reveal style="--d:0">
+          <div class="menu-card-inner" data-tilt>
+            <div class="media" data-label="Kopi Susu Gula Aren" data-note="Foto produk — signature drink">
+              <img class="media-img" src="assets/images/kopi-susu-gula-aren.jpg" alt="Kopi susu gula aren dalam gelas plastik" loading="lazy" decoding="async" width="600" height="450">
+            </div>
+            <h3>Kopi Susu Gula Aren <span class="badge">Signature</span></h3>
+            <p>Signature drink kami. Espresso, susu, gula aren — simpel, konsisten, enak.</p>
+            <p class="price" data-price="kopi-susu-gula-aren" hidden>Rp <span></span></p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-reveal style="--d:1">
+          <div class="menu-card-inner" data-tilt>
+            <div class="media" data-label="Merona 1000ml" data-note="Sumber: instagram.com/p/Da-C_ulj_KI (slide 4)">
+              <img class="media-img" src="assets/images/merona-bottle.jpg" alt="Botol kopi Merona ukuran 1000ml" loading="lazy" decoding="async" width="600" height="450">
+            </div>
+            <h3>Merona <span class="tag">1000ml</span></h3>
+            <p>Kopi botolan andalan buat stok kulkas atau dibawa pulang rame-rame.</p>
+            <p class="price" data-price="merona" hidden>Rp <span></span></p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-reveal style="--d:2">
+          <div class="menu-card-inner" data-tilt>
+            <div class="media" data-label="Affogato" data-note="Sumber: instagram.com/p/DbIuYSxj1Kz">
+              <img class="media-img" src="assets/images/affogato.jpg" alt="Affogato — espresso dituang ke atas es krim vanila" loading="lazy" decoding="async" width="600" height="450">
+            </div>
+            <h3>Affogato</h3>
+            <p>Espresso hangat dituang langsung ke es krim. Manis, pahit, pas.</p>
+            <p class="price" data-price="affogato" hidden>Rp <span></span></p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-reveal style="--d:3">
+          <div class="menu-card-inner" data-tilt>
+            <div class="media" data-label="Filter Coffee — Single Origin" data-note="Biji: Cloudline Coffee Roasters">
+              <img class="media-img" src="assets/images/coffee-beans.jpg" alt="Kemasan biji kopi single origin Cloudline Coffee Roasters" loading="lazy" decoding="async" width="600" height="450">
+            </div>
+            <h3>Filter Coffee <span class="tag">Rotating</span></h3>
+            <p>Single-origin bergilir dari Cloudline Coffee Roasters, diseduh manual.</p>
+            <p class="price" data-price="filter-coffee" hidden>Rp <span></span></p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-reveal style="--d:4">
+          <div class="menu-card-inner" data-tilt>
+            <div class="media" data-label="Dimsum Mentai" data-note="Sumber: instagram.com/p/DW1OT2cjxIy">
+              <img class="media-img" src="assets/images/dimsum-mentai.jpg" alt="Dimsum mentai dengan saus mentai panggang" loading="lazy" decoding="async" width="600" height="450">
+            </div>
+            <h3>Dimsum Mentai</h3>
+            <p>Temen ngopi yang gurih — cocok buat nemenin nongkrong lama.</p>
+            <p class="price" data-price="dimsum-mentai" hidden>Rp <span></span></p>
+          </div>
+        </article>
+      </div>
+
+      <p class="menu-foot">Menu lengkap &amp; harga terbaru ada di outlet — atau tanya langsung lewat
+        <a href="https://www.instagram.com/somekindof.coffee" target="_blank" rel="noopener">Instagram</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ PROMO ============ -->
+  <!-- Untuk menyembunyikan section ini saat promo habis: set promo.active = false di js/config.js -->
+  <section class="promo section" id="promo" data-promo>
+    <div class="container promo-inner">
+      <figure class="promo-graphic media" data-label="Promo Buy 2 Get 1 Free" data-note="Sumber: instagram.com/p/DbkyXhkP1um" data-reveal="scale" style="--d:0">
+        <img class="media-img" src="assets/images/promo-buy2get1.jpg" alt="Poster promo Buy 2 Get 1 Free dengan tiga cup iced coffee" loading="lazy" decoding="async" width="800" height="800">
+      </figure>
+      <div class="promo-text" data-reveal style="--d:1">
+        <span class="eyebrow promo-eyebrow" data-promo-label>Promo Bulan Ini</span>
+        <h2 class="display promo-headline" data-promo-title>Buy 2 Get 1 Free</h2>
+        <p data-promo-desc>Spesial bulan kemerdekaan — berlaku untuk dine-in &amp; take-away, selama periode promo berlangsung.</p>
+        <p class="promo-note">Cek promo bulanan kami di Instagram &amp; Threads — selalu ada yang baru tiap bulan.</p>
+        <a class="btn btn-cta" href="https://www.instagram.com/somekindof.coffee" target="_blank" rel="noopener">Cek Promo di Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMUNITY ============ -->
+  <section class="community section" id="community">
+    <div class="blob blob-cyan" aria-hidden="true"></div>
+    <div class="blob blob-pink" aria-hidden="true"></div>
+    <div class="container community-inner" data-reveal style="--d:0">
+      <span class="eyebrow">Komunitas</span>
+      <h2 class="display">Lebih dari sekadar coffee shop.</h2>
+      <p>SKOEE sering jadi titik kumpul buat komunitas lokal — mulai dari running club yang start pagi-pagi sebelum jam buka, sampai workshop kerajinan tangan di akhir pekan. Kalau kamu punya komunitas dan lagi cari tempat buat ngumpul, DM kami aja di Instagram.</p>
+      <ul class="community-tags">
+        <li>Running Club</li>
+        <li>Workshop Kerajinan</li>
+        <li>Meetup Komunitas</li>
+      </ul>
+      <a class="btn btn-outline" href="https://www.instagram.com/somekindof.coffee" target="_blank" rel="noopener">Ajak Kolaborasi</a>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION ============ -->
+  <section class="location section" id="location">
+    <div class="container location-grid">
+      <!--
+        TODO(map): ganti blok di bawah dengan embed Google Maps asli.
+        Cara: Google Maps → cari "Some Kind Of Coffee" → Share → Embed a map → copy <iframe>,
+        lalu tambahkan loading="lazy" dan title="Peta lokasi Some Kind Of Coffee".
+        Atau cukup isi maps.embed di js/config.js — iframe akan disuntik otomatis.
+      -->
+      <div class="location-map media" id="mapSlot" data-label="Peta Lokasi" data-note="TODO: embed Google Maps" data-reveal style="--d:0"></div>
+
+      <div class="location-info" data-reveal style="--d:1">
+        <span class="eyebrow">Lokasi &amp; Jam Buka</span>
+        <h2 class="display">Mampir, yuk.</h2>
+        <!-- TODO(alamat): lengkapi nama jalan + nomor + kode pos -->
+        <p class="location-address" data-site-text="address">Legoso, Ciputat Timur,<br>Tangerang Selatan, Banten</p>
+
+        <table class="hours-table">
+          <caption class="sr-only">Jam operasional Some Kind Of Coffee</caption>
+          <tbody>
+            <tr><th scope="row">Senin – Minggu</th><td>08.00 – 23.00</td></tr>
+          </tbody>
+        </table>
+
+        <div class="location-actions">
+          <a class="btn btn-cta" data-site-link="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Some+Kind+Of+Coffee+Ciputat" target="_blank" rel="noopener">Buka di Google Maps</a>
+          <a class="btn btn-outline" data-site-link="whatsapp" href="#" rel="noopener" hidden>Chat WhatsApp</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/somekindof.coffee" target="_blank" rel="noopener">Instagram @somekindof.coffee</a>
+          <a href="https://www.threads.net/@somekindof.coffee" target="_blank" rel="noopener">Threads</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">SK<span class="brand-zero">0</span>9</span>
+      <p>Some Kind Of Coffee — Legoso, Ciputat Timur, Tangerang Selatan.</p>
+    </div>
+    <nav class="footer-social" aria-label="Media sosial">
+      <a href="https://www.instagram.com/somekindof.coffee" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.threads.net/@somekindof.coffee" target="_blank" rel="noopener">Threads</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; <span id="year">2026</span> Some Kind Of Coffee (SKOEE). All rights reserved.</p>
+  </div>
+</footer>
+
+<!--
+  Structured data untuk Google Search / Google Maps.
+  TODO: lengkapi telephone, streetAddress, postalCode, latitude, longitude, url, dan image
+  (lihat README.md bagian "Data yang masih dibutuhkan").
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Some Kind Of Coffee",
+  "alternateName": "SKOEE",
+  "description": "Coffee shop lokal di Legoso, Ciputat Timur, Tangerang Selatan.",
+  "servesCuisine": "Coffee",
+  "priceRange": "$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Legoso",
+    "addressLocality": "Ciputat Timur",
+    "addressRegion": "Banten",
+    "postalCode": "15412",
+    "addressCountry": "ID"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "08:00",
+    "closes": "23:00"
+  }],
+  "sameAs": [
+    "https://www.instagram.com/somekindof.coffee",
+    "https://www.threads.net/@somekindof.coffee"
+  ]
+}
+</script>
+
+<script src="js/config.js"></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
