@@ -33,14 +33,24 @@ URL hasil deploy:
 https://aljihadjundy-oss.github.io/skoee-landing/
 ```
 
-**Syarat: repo harus publik.** GitHub Pages untuk repo privat hanya tersedia di
-paket berbayar (Pro/Team/Enterprise). Repo ini sekarang masih privat, jadi
-deploy akan gagal sampai visibility-nya diubah:
-**Settings → General → Danger Zone → Change visibility → Make public**.
+### Setup sekali di awal
 
-Kalau memang tidak mau repo-nya publik, alternatif gratis dengan repo tetap
-privat: **Netlify** atau **Vercel** (connect repo → deploy, tanpa konfigurasi
-tambahan karena situs ini statis murni).
+Deploy pertama gagal dengan
+`Create Pages site failed: Resource not accessible by integration`.
+Penyebabnya: GitHub Pages gratis hanya untuk repo publik, sedangkan repo ini
+dibuat privat — token Actions tidak diizinkan menyalakan Pages di sana.
+
+Dua langkah manual yang perlu dilakukan sekali:
+
+1. **Settings → General → Danger Zone → Change visibility → Make public**
+2. **Settings → Pages → Build and deployment → Source: GitHub Actions**
+   (kemungkinan sudah otomatis terisi setelah langkah 1 — cek saja)
+
+Lalu jalankan ulang: **Actions → Deploy ke GitHub Pages → Re-run all jobs**.
+
+Alternatif kalau repo harus tetap privat: **Netlify** atau **Vercel** —
+keduanya gratis untuk repo privat dan tidak butuh konfigurasi tambahan karena
+situs ini statis murni.
 
 Kalau nanti pakai domain sendiri, ganti `canonical`, `og:url`, dan `og:image`
 di `<head>` `index.html` ke domain baru.
