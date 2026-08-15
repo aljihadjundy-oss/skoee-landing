@@ -35,18 +35,21 @@ https://aljihadjundy-oss.github.io/skoee-landing/
 
 ### Setup sekali di awal
 
-Deploy pertama gagal dengan
+Pages **harus diaktifkan manual sekali** sebelum workflow ini bisa jalan:
+
+**Settings → Pages → Build and deployment → Source: GitHub Actions**
+
+Tanpa itu, workflow berhenti di `actions/configure-pages` dengan
 `Create Pages site failed: Resource not accessible by integration`.
-Penyebabnya: GitHub Pages gratis hanya untuk repo publik, sedangkan repo ini
-dibuat privat — token Actions tidak diizinkan menyalakan Pages di sana.
+`GITHUB_TOKEN` tidak punya izin *membuat* site Pages, jadi opsi
+`enablement: true` di workflow tidak bisa menggantikan langkah manual ini —
+opsi tersebut hanya berguna untuk membaca konfigurasi Pages yang sudah ada.
 
-Dua langkah manual yang perlu dilakukan sekali:
+Repo juga harus publik (sudah), karena Pages gratis tidak berlaku untuk repo
+privat.
 
-1. **Settings → General → Danger Zone → Change visibility → Make public**
-2. **Settings → Pages → Build and deployment → Source: GitHub Actions**
-   (kemungkinan sudah otomatis terisi setelah langkah 1 — cek saja)
-
-Lalu jalankan ulang: **Actions → Deploy ke GitHub Pages → Re-run all jobs**.
+Setelah Pages diaktifkan, jalankan ulang:
+**Actions → Deploy ke GitHub Pages → Re-run all jobs**.
 
 Alternatif kalau repo harus tetap privat: **Netlify** atau **Vercel** —
 keduanya gratis untuk repo privat dan tidak butuh konfigurasi tambahan karena
