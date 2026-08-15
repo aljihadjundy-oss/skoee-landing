@@ -30,10 +30,10 @@ window.SKOEE_CONFIG = {
                    Google Maps → Share → Embed a map.
                    Kalau diisi, peta langsung tampil menggantikan
                    placeholder — tidak perlu edit HTML.                  */
-  address: 'Legoso, Ciputat Timur,\nTangerang Selatan, Banten',
+  address: 'Jl. Ciputat Molek III No.17, Pisangan, Ciputat Timur, Tangerang Selatan.',
   maps: {
     link: 'https://www.google.com/maps/search/?api=1&query=Some+Kind+Of+Coffee+Ciputat',
-    embed: ''
+    embed: 'https://google.com'
   },
 
   /* --- Jam operasional ------------------------------------------------
@@ -56,10 +56,10 @@ window.SKOEE_CONFIG = {
      Isi angka polos (tanpa "Rp"/titik), contoh: 22000.
      Biarkan null kalau belum mau menampilkan harga.                     */
   prices: {
-    'kopi-susu-gula-aren': null,
-    'merona': null,
-    'affogato': null,
-    'filter-coffee': null,
-    'dimsum-mentai': null
+    'kopi-susu-gula-aren': 22000,
+    'merona': 22000,
+    'affogato': 22000,
+    'filter-coffee': 22000,
+    'dimsum-mentai': 22000
   }
 };
