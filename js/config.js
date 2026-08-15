@@ -26,14 +26,23 @@ window.SKOEE_CONFIG = {
   /* --- Lokasi ---------------------------------------------------------
      address     : alamat lengkap (boleh multi-baris pakai \n)
      maps.link   : link "Share" dari Google Maps
-     maps.embed  : URL di dalam src="..." pada kode <iframe> hasil
-                   Google Maps → Share → Embed a map.
-                   Kalau diisi, peta langsung tampil menggantikan
-                   placeholder — tidak perlu edit HTML.                  */
+     maps.embed  : URL peta yang disuntik sebagai <iframe>.
+
+                   Nilai sekarang memakai bentuk "?q=<alamat>&output=embed",
+                   yaitu peta hasil PENCARIAN ALAMAT. Ini sudah jalan, tapi
+                   pin-nya mengikuti tebakan Google atas alamat tersebut.
+
+                   Untuk pin yang persis menempel di listing SKOEE, ganti
+                   dengan embed resmi: Google Maps → cari Some Kind Of Coffee
+                   → Share → Embed a map → COPY HTML → ambil URL di dalam
+                   src="..." (bentuknya https://www.google.com/maps/embed?pb=...)
+
+                   Hanya dua bentuk di atas yang diterima; nilai lain
+                   diabaikan dan placeholder peta tetap tampil.           */
   address: 'Jl. Ciputat Molek III No.17, Pisangan, Ciputat Timur, Tangerang Selatan.',
   maps: {
     link: 'https://www.google.com/maps/search/?api=1&query=Some+Kind+Of+Coffee+Ciputat',
-    embed: 'https://google.com'
+    embed: 'https://maps.google.com/maps?q=Some+Kind+Of+Coffee%2C+Jl.+Ciputat+Molek+III+No.17%2C+Pisangan%2C+Ciputat+Timur%2C+Tangerang+Selatan&z=17&output=embed'
   },
 
   /* --- Jam operasional ------------------------------------------------
