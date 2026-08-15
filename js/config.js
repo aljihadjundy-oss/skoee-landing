@@ -17,7 +17,7 @@ window.SKOEE_CONFIG = {
      Nomor WhatsApp format internasional TANPA tanda + dan tanpa spasi.
      Contoh: 0812-3456-7890  ->  '6281234567890'
      Kosongkan ('') kalau memang belum mau pakai tombol WhatsApp.        */
-  whatsapp: '',
+  whatsapp: '082130820192',
   whatsappMessage: 'Halo SKOEE, mau tanya menu dong.',
 
   instagram: 'https://www.instagram.com/somekindof.coffee',
