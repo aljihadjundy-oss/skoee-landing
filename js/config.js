@@ -25,24 +25,29 @@ window.SKOEE_CONFIG = {
 
   /* --- Lokasi ---------------------------------------------------------
      address     : alamat lengkap (boleh multi-baris pakai \n)
-     maps.link   : link "Share" dari Google Maps
+     maps.link   : link "Share" dari Google Maps — dipakai tombol
+                   "Buka di Google Maps"
+
      maps.embed  : URL peta yang disuntik sebagai <iframe>.
 
-                   Nilai sekarang memakai bentuk "?q=<alamat>&output=embed",
-                   yaitu peta hasil PENCARIAN ALAMAT. Ini sudah jalan, tapi
-                   pin-nya mengikuti tebakan Google atas alamat tersebut.
+                   HANYA menerima URL embed resmi:
+                     https://www.google.com/maps/embed?pb=...
 
-                   Untuk pin yang persis menempel di listing SKOEE, ganti
-                   dengan embed resmi: Google Maps → cari Some Kind Of Coffee
-                   → Share → Embed a map → COPY HTML → ambil URL di dalam
-                   src="..." (bentuknya https://www.google.com/maps/embed?pb=...)
+                   Bentuk lain (link Share biasa, atau
+                   maps.google.com/maps?...&output=embed) ditolak Google
+                   untuk di-iframe dan hasilnya kotak kosong, jadi
+                   sengaja tidak diterima.
 
-                   Hanya dua bentuk di atas yang diterima; nilai lain
-                   diabaikan dan placeholder peta tetap tampil.           */
+                   Cara ambil:
+                     Google Maps → cari "Some Kind Of Coffee" → Share →
+                     tab "Embed a map" → COPY HTML → salin URL di dalam src="..."
+
+                   Selama kosong, slot peta menampilkan kartu lokasi
+                   statis (nama + alamat + tombol ke Google Maps).       */
   address: 'Jl. Ciputat Molek III No.17, Pisangan, Ciputat Timur, Tangerang Selatan.',
   maps: {
     link: 'https://www.google.com/maps/search/?api=1&query=Some+Kind+Of+Coffee+Ciputat',
-    embed: 'https://maps.google.com/maps?q=Some+Kind+Of+Coffee%2C+Jl.+Ciputat+Molek+III+No.17%2C+Pisangan%2C+Ciputat+Timur%2C+Tangerang+Selatan&z=17&output=embed'
+    embed: ''
   },
 
   /* --- Jam operasional ------------------------------------------------

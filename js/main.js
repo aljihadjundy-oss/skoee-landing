@@ -245,22 +245,23 @@
     });
 
     var slot = $('#mapSlot');
-    // Hanya URL embed resmi Google Maps yang boleh disuntik. Link Maps biasa
-    // (apalagi google.com polos) akan ditolak browser lewat X-Frame-Options
-    // dan cuma menghasilkan kotak kosong — lebih baik tetap tampilkan placeholder.
-    var isEmbedUrl = /^https:\/\/(www\.)?google\.com\/maps\/embed/.test(maps.embed || '') ||
-                     /^https:\/\/maps\.google\.com\/maps\?.*output=embed/.test(maps.embed || '');
+
+    // Hanya URL embed resmi (https://www.google.com/maps/embed?pb=...) yang
+    // disuntik. Bentuk lain — link Share biasa, maps.google.com/maps?...&output=embed,
+    // apalagi google.com polos — ditolak Google untuk di-iframe dan hasilnya
+    // kotak kosong. Kalau tidak valid, kartu lokasi statis dibiarkan tampil.
+    var isEmbedUrl = /^https:\/\/(www\.)?google\.com\/maps\/embed\?/.test(maps.embed || '');
 
     if (slot && maps.embed && !isEmbedUrl) {
       console.warn(
-        '[SKOEE] maps.embed di js/config.js bukan URL embed Google Maps yang valid, jadi diabaikan.\n' +
-        'Ambil lewat: Google Maps → Share → Embed a map → copy HTML → salin URL di dalam src="...".\n' +
-        'Bentuknya harus diawali https://www.google.com/maps/embed?pb=...\n' +
+        '[SKOEE] maps.embed di js/config.js diabaikan karena bukan URL embed resmi.\n' +
+        'Ambil lewat: Google Maps → Share → tab "Embed a map" → COPY HTML →\n' +
+        'salin URL di dalam src="...". Bentuknya https://www.google.com/maps/embed?pb=...\n' +
         'Nilai sekarang: ' + maps.embed
       );
     }
 
-    if (slot && maps.embed && isEmbedUrl) {
+    if (slot && isEmbedUrl) {
       var frame = document.createElement('iframe');
       frame.src = maps.embed;
       frame.title = 'Peta lokasi Some Kind Of Coffee';
@@ -269,18 +270,21 @@
       frame.setAttribute('allowfullscreen', '');
       slot.textContent = '';
       slot.appendChild(frame);
-      slot.classList.add('is-loaded');
+      slot.classList.add('has-embed');
     }
   })();
 
   /* 9c. Alamat */
   (function applyAddress() {
-    var el = $('[data-site-text="address"]');
-    if (!el || !CFG.address) return;
-    el.innerHTML = '';
-    String(CFG.address).split('\n').forEach(function (line, i) {
-      if (i) el.appendChild(document.createElement('br'));
-      el.appendChild(document.createTextNode(line));
+    if (!CFG.address) return;
+    var lines = String(CFG.address).split('\n');
+    // Alamat muncul di lebih dari satu tempat (info lokasi + kartu peta)
+    $$('[data-site-text="address"]').forEach(function (el) {
+      el.innerHTML = '';
+      lines.forEach(function (line, i) {
+        if (i) el.appendChild(document.createElement('br'));
+        el.appendChild(document.createTextNode(line));
+      });
     });
   })();
 

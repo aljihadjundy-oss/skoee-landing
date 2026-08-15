@@ -222,7 +222,15 @@
         lalu tambahkan loading="lazy" dan title="Peta lokasi Some Kind Of Coffee".
         Atau cukup isi maps.embed di js/config.js — iframe akan disuntik otomatis.
       -->
-      <div class="location-map media" id="mapSlot" data-label="Peta Lokasi" data-note="Memuat peta…" data-reveal style="--d:0"></div>
+      <div class="location-map" id="mapSlot" data-reveal style="--d:0">
+        <div class="map-card">
+          <svg class="map-pin" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true">
+            <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/>
+          </svg>
+          <p class="map-card-name">Some Kind Of Coffee</p>
+          <p class="map-card-addr" data-site-text="address">Legoso, Ciputat Timur,<br>Tangerang Selatan, Banten</p>
+        </div>
+      </div>
 
       <div class="location-info" data-reveal style="--d:1">
         <span class="eyebrow">Lokasi &amp; Jam Buka</span>
