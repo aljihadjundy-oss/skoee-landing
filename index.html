@@ -235,7 +235,6 @@
       <div class="location-info" data-reveal style="--d:1">
         <span class="eyebrow">Lokasi &amp; Jam Buka</span>
         <h2 class="display">Mampir, yuk.</h2>
-        <!-- TODO(alamat): lengkapi nama jalan + nomor + kode pos -->
         <p class="location-address" data-site-text="address">Legoso, Ciputat Timur,<br>Tangerang Selatan, Banten</p>
 
         <table class="hours-table">
@@ -246,7 +245,7 @@
         </table>
 
         <div class="location-actions">
-          <a class="btn btn-cta" data-site-link="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Some+Kind+Of+Coffee+Ciputat" target="_blank" rel="noopener">Buka di Google Maps</a>
+          <a class="btn btn-cta" data-site-link="maps" href="https://maps.google.com/?cid=13073228417130649132" target="_blank" rel="noopener">Buka di Google Maps</a>
           <a class="btn btn-outline" data-site-link="whatsapp" href="#" rel="noopener" hidden>Chat WhatsApp</a>
         </div>
 
@@ -278,8 +277,9 @@
 
 <!--
   Structured data untuk Google Search / Google Maps.
-  TODO: lengkapi telephone, streetAddress, postalCode, latitude, longitude, url, dan image
-  (lihat README.md bagian "Data yang masih dibutuhkan").
+  Koordinat diambil dari URL Google Maps listing SKOEE.
+  TODO: konfirmasi kode pos (diisi 15419 untuk Pisangan — mohon dicek), dan
+  tambahkan "telephone" kalau ada nomor telepon outlet.
 -->
 <script type="application/ld+json">
 {
@@ -292,12 +292,18 @@
   "priceRange": "$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Legoso",
+    "streetAddress": "Jl. Ciputat Molek III No.17, Pisangan",
     "addressLocality": "Ciputat Timur",
     "addressRegion": "Banten",
-    "postalCode": "15412",
+    "postalCode": "15419",
     "addressCountry": "ID"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -6.3139401,
+    "longitude": 106.7531043
+  },
+  "hasMap": "https://maps.google.com/?cid=13073228417130649132",
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
