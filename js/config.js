@@ -47,7 +47,7 @@ window.SKOEE_CONFIG = {
   address: 'Jl. Ciputat Molek III No.17, Pisangan, Ciputat Timur, Tangerang Selatan.',
   maps: {
     link: 'https://www.google.com/maps/search/?api=1&query=Some+Kind+Of+Coffee+Ciputat',
-    embed: ''
+    embed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.616990527031!2d106.75310429999999!3d-6.313940100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69efa73a58b489%3A0xb56d6ffafe9d562c!2sSkoee%20(Some%20Kind%20Of%20Coffee)!5e0!3m2!1sid!2sid!4v1786778695272!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>'
   },
 
   /* --- Jam operasional ------------------------------------------------
